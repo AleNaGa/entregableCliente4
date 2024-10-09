@@ -19,10 +19,10 @@ for(let n of listaClase){
 }
 const btn = document.createElement("button");
 btn.textContent = "Generar";
-btn.classList.add("btn");
+btn.classList.add("bg-red-500", "text-white", "font-bold", "py-2", "px-4", "rounded");
 document.body.append(btn);
 const container =document.createElement("div");
-container.classList.add("container");
+container.classList.add("grid", "grid-cols-7", "gap-4", "container","h-screen");
 document.body.append(container);
 const alreadyGenerated = [];
 let aleatorio;
@@ -33,15 +33,15 @@ btn.addEventListener("click", ()=>{
             if(!alreadyGenerated.includes(aleatorio)){
                 alreadyGenerated.push(aleatorio);
                 let card = document.createElement("div"); //creo un contenedor
-                card.classList.add("card");
+                card.classList.add("flex", "flex-col", "justify-center", "items-center", "card",);
                 card.id = String(`${aleatorio}`);
                 container.append(card);
-                card.innerHTML = `<h3>${listaClase[aleatorio].Nombre} ${listaClase[aleatorio].Apellidos}</h3>
-                <p>Su color de pelo es: ${listaClase[aleatorio].ColorPelo}</p>`;
+                card.innerHTML = `<h3 class="font-bold text-xl text-center">${listaClase[aleatorio].Nombre} ${listaClase[aleatorio].Apellidos}</h3>
+                <p class="font-light text-lg text-center">Su color de pelo es: ${listaClase[aleatorio].ColorPelo}</p>`;
                 //boton delete
                 let btnDelete = document.createElement("button");
                 btnDelete.textContent = "Borrar";
-                btnDelete.classList.add("btn");
+                btnDelete.classList.add("bg-red-500", "text-white", "font-bold", "py-2", "px-4", "rounded");
                 card.append(btnDelete);
                 btnDelete.addEventListener("click", ()=>{
                     card.remove();
